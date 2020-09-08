@@ -27,6 +27,8 @@
   - 主动
     - github
     - LeetCode
+      - Sulution
+      - Discuss
   - 被动
     - code review
 
@@ -94,4 +96,3 @@
 ### 常见时间复杂度
 
 ![run-time](./assets/run-time.png)
-

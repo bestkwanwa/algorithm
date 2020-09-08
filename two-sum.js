@@ -7,18 +7,31 @@
     因为 nums[0] + nums[1] = 2 + 7 = 9
     所以返回 [0, 1]
 */
-var twoSum = function(nums, target) {
-    let arr=[];
+
+/* 
+    方法一：暴力双循环
+    时间复杂度：O(n^2)
+*/
+/* var twoSum = function(nums, target) {
     for(let i=0;i<nums.length;i++){
-        let diff=Math.abs(target-nums[i]);
-        for(let j=i+1;j<nums.length;j++){
-            if(diff==nums[j]){
-                arr=[i,j]
-                return arr
+        for(let j=i;j<nums.length;j++){
+            if(nums[i]+nums[j]===target){
+                return [i,j]
             }
         }
     }
-};
+}; */
+
+/* 
+    方法二：
+*/
+var twoSum=function(nums,target){
+    for(let i=0;i<nums.length;i++){
+        nums.include()
+    }
+}
+
+
 let res=twoSum([3,2,4],6)
 console.log('res',res)
 
