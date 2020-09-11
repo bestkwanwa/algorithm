@@ -10,6 +10,40 @@
     你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 */
 
-var reverseList = function(head) {
+/* 
+    方法一：
+    设置prev指针指向null，curr指针指向head。让curr.next指向prev，prev指向curr，curr指向curr.next，完成一次迭代。
+*/
 
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+
+/* var reverseList = function (head) {
+    let curr=head
+    let prev=null
+    while(curr!==null){
+        // let next=curr.next
+        curr.next=prev;
+        prev=curr;
+        // curr=next
+        curr=curr.next
+    }
+    return prev
+}; */
+
+var reverseList = function (head) {
+    let [prev,curr]=[null,head]
+    while(curr){
+        [curr.next,prev,curr]=[prev,curr,curr.next]
+    }
+    return prev
 };
