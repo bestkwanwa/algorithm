@@ -13,6 +13,7 @@
 /* 
     方法一：
     设置prev指针指向null，curr指针指向head。让curr.next指向prev，prev指向curr，curr指向curr.next，完成一次迭代。
+    时间复杂度 O(n)
 */
 
 /**
@@ -40,10 +41,29 @@
     return prev
 }; */
 
-var reverseList = function (head) {
-    let [prev,curr]=[null,head]
-    while(curr){
-        [curr.next,prev,curr]=[prev,curr,curr.next]
+// var reverseList = function (head) {
+//     // 使用解构赋值语法糖
+//     let [prev,curr]=[null,head]
+//     while(curr){
+//         [curr.next,prev,curr]=[prev,curr,curr.next]
+//     }
+//     return prev
+// };
+
+/* 
+    方法二：尾递归法
+*/
+
+/* let reverseList = function (head) {
+    let reverse=(prev,curr)=>{
+        if(!curr) return prev;
+        let next=curr.next;
+        curr.next=prev;
+        return reverse(curr,next)
     }
-    return prev
-};
+    return reverse(null,head);
+}; */
+
+/* 
+    未完
+*/
