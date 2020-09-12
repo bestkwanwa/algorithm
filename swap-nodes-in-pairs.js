@@ -19,7 +19,36 @@
  * @return {ListNode}
  */
 
- 
-var swapPairs = function(head) {
+/* 
+    方法一：
+    时间复杂度 O(n)
+*/
+var swapPairs = function (head) {
+    let tHead = new ListNode(0);    // 添加一个哨兵节点
+    tHead.next = head;              
+    let temp = tHead;               // 以三个节点为一组进行指针的变换
+    while (temp.next !== null && temp.next.next !== null) { // 满足三个节点为一组
+        let start = temp.next;
+        let end = start.next;
+        temp.next = end;
+        start.next = end.next
+        end.next = start;
+        temp = start;
+    }
+    return tHead.next;
+};
 
+/* 
+    方法二：递归法
+    时间复杂度 O(n)
+*/
+
+var swapPairs = function(head) {
+    if(head===null||head.next===null){
+        return head;
+    };
+    let next=head.next; //head 和 next 为一组需要互换位置的节点
+    head.next=swapPairs(next.next); // 下一组
+    next.next=head;
+    return next;    // 妙啊！
 };
