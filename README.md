@@ -96,3 +96,5 @@
 ### 常见时间复杂度
 
 ![run-time](./assets/run-time.png)
+
+![time-complexity-vs-space-complexity](./assets/big-o-cheat-sheet-poster-enhanced.png)

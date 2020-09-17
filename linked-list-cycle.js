@@ -7,7 +7,7 @@
     ex.
     输入：head = [3,2,0,-4], pos = 1
     输出：true
-    解释：链表中有一个环，其尾部连接到第二个节点。
+    解释：链表中有一个环，其尾部连接到第二个结点。
 
     进阶：
     你能用 O(1)（即，常量）内存解决此问题吗？
@@ -26,12 +26,21 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    
+    let slow=head;
+    let fast=head;
+    while(slow&&fast&&fast.next){   // 特殊情况:1、只有一个结点；2、空结点
+        slow=slow.next;
+        fast=fast.next.next;
+        if(slow===fast){
+            return true;
+        };
+    }
+    return false;
 };
 
 /* 
     总结：
     方法一：硬做，给个时间限制（1s或0.5s），看能否遍历到null
-    方法二：用set数据结构把遍历过的节点存起来，然后判重,时间复杂度O(n)
+    方法二：用set数据结构把遍历过的结点存起来，然后判重,时间复杂度O(n)
     方法三：快慢指针，看是否会相遇，时间复杂度O(n)
 */
